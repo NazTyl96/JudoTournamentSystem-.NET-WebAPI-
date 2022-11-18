@@ -13,4 +13,6 @@ public class Tournament
 
     [Required]
     public DateTime Date {get; set;}
+
+    public ICollection<Competitor>? Competitors {get; set;}
 }

@@ -21,7 +21,8 @@ public class TournamentRepository : ITournamentRepository<Tournament>
 
     public async Task<Tournament?> GetById(int id)
     {
-        return await _context.Tournaments.AsNoTracking()
+        return await _context.Tournaments.Include(t => t.Competitors)
+                                         .AsNoTracking()
                                          .FirstOrDefaultAsync(t => t.Id == id);
     }
 

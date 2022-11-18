@@ -1,7 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-
-using JTS.Interfaces;
+using System.Text.Json.Serialization;
 
 namespace JTS.Models;
 
@@ -29,4 +28,7 @@ public class Competitor
 
     [Required]
     public string? Club {get; set;}
+
+    [JsonIgnore]
+    public ICollection<Tournament>? Tournaments {get; set;}
 } 
